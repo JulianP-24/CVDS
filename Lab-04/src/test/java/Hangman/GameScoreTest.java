@@ -49,8 +49,8 @@ import org.junit.Test;
                                 
 public class GameScoreTest {
 
-    @Test
-    public void validateInvalidParameters() {
+    //@Test
+    /**public void validateInvalidParameters() {
         GameScore game;
         try {
             game = new OriginalScore();
@@ -74,7 +74,7 @@ public class GameScoreTest {
         } catch (GameScoreException e) {
             Assert.assertTrue(true);
         }
-    }
+    }**/
     
     @Test
     public void validOriginScoreOnlyCorrectLetters() throws GameScoreException {
