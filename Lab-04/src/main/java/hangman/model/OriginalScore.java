@@ -10,6 +10,14 @@ public class OriginalScore implements GameScore{
      */
     public int CalculateScore(int CorrectCount, int IncorrectCount) throws GameScoreException{
         int score =100;
+        if(CorrectCount < 0 || IncorrectCount < 0) {throw new GameScoreException(GameScoreException.INVALID_PARAMETERS);}
+        if(IncorrectCount>10){
+            score = 0;
+        }
+        if(0 <= IncorrectCount && IncorrectCount <= 10){
+            score-=IncorrectCount*10;
+
+        }
         return score;
     }
 

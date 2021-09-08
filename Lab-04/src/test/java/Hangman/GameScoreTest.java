@@ -1,4 +1,4 @@
-package hangman;
+package Hangman;
 import hangman.model.*;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,9 +19,8 @@ import org.junit.Test;
  # Letras correctas	              # Letras Incorrectas
  1	       LC < 0 		                                                                    Incorrecto
  2		                                   LI < 0 	                                        Incorrecto
- 3	       LC >= 0 	                         0	                                            LC * 10
- 4	       LC > 0 	                    LI <= LC*2 	                                    (LC*10)-(LI*5)
- 5         LC*2 < LI                       LI>0                                                  0
+ 3	       LC > 0 	                    LI <= LC*2 	                                    (LC*10)-(LI*5)
+ 4         LC*2 < LI                       LI>0                                                  0
  */
 
  /**
@@ -77,7 +76,6 @@ public class GameScoreTest {
         }
     }
     
-
     @Test
     public void validOriginScoreOnlyCorrectLetters() throws GameScoreException {
         GameScore game = new OriginalScore();
@@ -101,9 +99,10 @@ public class GameScoreTest {
     @Test
     public void validBonusScoreOnlyCorrectLetters() throws GameScoreException {
         GameScore game = new BonusScore();
-        int score = game.CalculateScore(10,0);
-        Assert.assertTrue(score == 100);
+        int score = game.CalculateScore(0,0);
+        Assert.assertTrue(score == 0);
     }
+     
 
     @Test
     public void validBonusScoreCorrectLettersAndPenalty() throws GameScoreException {
@@ -116,10 +115,10 @@ public class GameScoreTest {
     @Test
     public void validBonusScoreCorrectMinScore() throws GameScoreException {
         GameScore game = new BonusScore();
-        int score = game.CalculateScore(10,20);
+        int score = game.CalculateScore(10,25);
         Assert.assertTrue(score == 0);
     }
-
+    
     @Test
     public void validPowerScoreOnlyCorrectLetters() throws GameScoreException {
         GameScore game = new PowerScore();
